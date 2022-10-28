@@ -1,0 +1,18 @@
+nav{
+    background-color: lightgrey;    
+    text-align:center;   
+}   
+    
+li{   
+    display:inline-block;    
+    padding:8px;  
+    border: 2px solid blue; 
+}
+a{
+    color:green;
+    text-decoration: none;
+}
+a:hover{
+    color: white;
+    background-color: green;;
+}

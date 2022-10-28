@@ -1,0 +1,43 @@
+h1{  
+    color: rgb(12, 61, 12);
+}
+h1, h2{ 
+    text-align: center;
+}
+p{
+    text-align: justify;
+   
+}
+body{
+    width: 80%;
+    margin: 0 auto;
+}
+article{
+    display:inline-block;
+    width: 30%;
+    border: 2px solid rgb(19, 90, 19);
+    background: rgb(138, 204, 138);
+    
+    padding: 10px;
+    height: 810px;
+    vertical-align: top;
+    
+}
+section{
+    text-align: center;
+}
+span{
+    font-weight: bold;
+}
+.centre{
+    margin-left: 13px;
+    margin-right: 13px;
+}
+img{
+    max-width: 100%;
+    height: auto;
+}
+@media only screen and (max-width: 800px){
+    article{width: 100%;}
+};
+    
