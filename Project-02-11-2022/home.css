@@ -1,0 +1,29 @@
+nav{
+    background-color: #b08968;
+    text-align: center;
+}
+li{
+    display: inline-block;
+    padding: 8px;
+}
+h1{
+    text-align: center;
+}
+a:link{
+    color: #250902;
+}
+a:visited{
+    color: black;
+}
+a:hover{
+    color: #f2cc8f;
+}
+body{
+    margin: 15px;
+}
+img{
+    height: 600px;
+    width: auto;
+    display: block;
+
+}
