@@ -1,0 +1,20 @@
+h4{
+    border: 2px solid rgb(218, 188, 123);
+    margin: 20px;
+    padding: 10px;
+    border-radius: 25%;
+}
+#tel{
+    display: flex;
+    color: lemonchiffon;
+}
+#email{
+    display: flex;
+    color: lemonchiffon;
+}
+h1{
+    color: khaki;
+}
+body{
+    background-image: url("bgrn.jpg");
+}
