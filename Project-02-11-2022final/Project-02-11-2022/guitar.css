@@ -1,0 +1,52 @@
+nav{
+    background-color: #b08968;
+    text-align: center;
+    padding: 1px;
+    margin: 10px;
+}
+li{
+    display: inline-block;
+    padding: 8px;
+}
+h1{
+    text-align: center;
+    font: 3em sans-serif;
+}
+a:link{
+    color: #250902;
+}
+a:visited{
+    color: black;
+}
+a:hover{
+    color: #f2cc8f;
+}
+body{
+    margin: 10px;   
+}
+header{
+    background-image: url("bgrn.jpg");
+    padding: 50px;
+    margin: 10px;
+}
+img{
+    margin: 10px;
+    width: 100%;
+    height: auto;
+}
+h4{
+    color:rgb(59, 12, 12);
+}
+
+section, aside{
+    display: flex;
+}
+
+@media screen and (max-width: 800px) {
+    div{
+        width: 100%;
+      display: block;
+        
+    }
+    
+}

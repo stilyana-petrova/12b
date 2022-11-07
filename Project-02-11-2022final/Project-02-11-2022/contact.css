@@ -1,0 +1,75 @@
+* {
+	margin:0;
+	padding:0;
+	box-sizing:border-box;
+}
+
+body {
+    background-image: url("bgrn.jpg");
+
+	font-family:"Open Sans", Helvetica, Arial, sans-serif;
+	font-weight:300;
+	font-size: 12px;
+	line-height:30px;
+	color:#777;
+}
+
+.container {
+	max-width:400px;
+	width:100%;
+	margin:0 auto;
+}
+
+
+#contact {
+	background:#F9F9F9;
+	padding:25px;
+	margin:50px 0;
+}
+
+#contact h3 {
+	color: rgb(129, 51, 21);
+	display: block;
+	font-size: 30px;
+	font-weight: 400;
+}
+
+#contact h4 {
+	margin:5px 0 15px;
+	display:block;
+	font-size:13px;
+}
+
+fieldset {
+	border: none;
+	min-width: 100%;
+}
+
+#contact input[type="text"] {
+	width:100%;
+	border:1px solid #CCC;
+	background:rgb(255, 255, 255);
+	margin:0 0 5px;
+	padding:10px;
+}
+
+#contact button[type="submit"] {
+	width:100%;
+	background:rgb(129, 51, 21);
+	color:#FFF;
+	margin:0 0 5px;
+	padding:10px;
+
+}
+
+#contact input[type="radio"]:checked {
+    color:rgb(175, 120, 48);
+}
+
+select{
+    background: rgb(175, 120, 48);
+    margin:0 0 5px;
+    padding: 10px;
+}
+
+
