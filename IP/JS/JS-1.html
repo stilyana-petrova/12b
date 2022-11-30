@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Change attributes with js</title>
+</head>
+<body style="background: lightgreen;">
+    <b style="font-size: 40px;" id="heading">За лентяйството</b>
+    <p id="paragraph">
+        По въпроса за лентяйството аз се лаская от мисълта да се считам за специалист.<br />
+        Лентяят не е човек, който се мотае без работа с ръце в джобовете. Тъкмо обратното — най-изумителната му черта е, че винаги е страшно зает.<br />
+        <i>Не можеш да се наслаждаваш истински на безделието, ако нямаш достатъчно много работа. Какво удоволствие можеш да изпиташ от това, че не вършиш нищо, ако изобщо нямаш какво да вършиш.</i><br />
+        <i>Дж. К. Джером</i>
+    </p>
+    <img id="image" width=400 src="https://iliyankovachev.files.wordpress.com/2019/02/fish1.jpg">
+    </img>
+<script src="JS-1.js">
+    let image = document.getElementById("image");
+    image.width = 250;
+    image.src="https://iliyankovachev.files.wordpress.com/2019/02/fish2.jpg&#8220";
+    let bodytag = document.body;
+    bodytag.style.background = "Beige";
+    let about = document.getElementById("heading");
+    about.style.fontSize = 100;
+    let italics = document.getElementsByTagName("i")[0];
+    italics.innerText = "Склонността към лентяйството винаги е била най-силната черта на моя характер.";
+    italics.innerHTML = "Склонността към лентяйството винаги е била <b>най-силната черта</b> на моя характер.";
+</script>
+</body>
+</html>
