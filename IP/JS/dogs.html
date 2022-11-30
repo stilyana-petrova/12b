@@ -1,12 +1,20 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>Finding elements by ID</title>
     </head>
     <style>
-         p .animal{
+       /*  p .animal{
                 color:red;
+        }
+
+        a[href*="Dog"] {
+                color: purple;
+        }*/
+        .catcolors {
+            color: orange;
+            background-color: black;
         }
     </style>
     <body>
@@ -24,10 +32,42 @@
         1. Find the DOM node using an access method.
         2. Manipulate the DOM node by changing its attributes, styles, inner HTML, or appending new nodes to it.
         */
-        var headingEl = document.getElementById("heading");
-            headingEl.innerHTML = "All about cats";
+        var imageEls = document.getElementsByTagName("img");
+            for (var i = 0; i < imageEls.length; i++) {
+                imageEls[i].src = "https://www.kasandbox.org/programming-images/animals/cat.png";
+            }
+        var linkEls = document.querySelectorAll("a[href*=\"Dog\"]");
+        for (var i = 0; i < linkEls.length; i++) {
+                linkEls[i].href = "http://en.wikipedia.org/wiki/Cat";
+        }
 
-            var nameEls = document.querySelectorAll("p .animal");
+        var headingEl = document.querySelector("#heading");
+        headingEl.className = "catcolors";
+            //headingEl.style.color = "orange";
+            //headingEl.style.backgroundColor="black";
+            headingEl.style.textAlign = "center";
+            headingEl.textContent = "All about cats";
+
+        var nameEls = document.querySelectorAll("p .animal");
+        for (var i = 0; i < nameEls.length; i++) {
+            var strongEl = document.createElement("strong");
+            //strongEl.textContent = "cat";
+            var strongText = document.createTextNode("cat");
+            strongEl.appendChild(strongText);
+
+            nameEls[i].innerHTML = "";
+            nameEls[i].appendChild(strongEl);
+
+                nameEls[i].className += " catcolors";
+        }
+        //nameEls[i].classList.add("catcolors");
+
+        var catEl = document.createElement("img");
+            catEl.src = "https://www.kasandbox.org/programming-images/animals/cat.png";
+            catEl.alt = "Photo of cute cat";
+
+            document.body.appendChild(catEl);
+
 
         var elementId= document.getElementsByTagName("span");
         elementId.innerHTML="cats";
