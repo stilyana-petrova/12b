@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adding an event listener</title>
+</head>
+<body>
+    <h1>Boring webpage</h1>
+    <button id="clicker">Boring button</button>
+    <button id="dbClicker">Button</button>
+
+    <script>
+        var clickerButton = document.getElementById("clicker")
+        var title = document.getElementsByTagName("h1")[0]
+        var secondButton = document.getElementById("dbClicker")
+
+        var onButtonClick = function(){
+            title.textContent="Not Boring..."
+            clickerButton.textContent="Oh, wow you clicked me"
+        }
+
+        var onDbClick = function(){
+            title.textContent = "Very very interesting..."
+            clickerButton.textContent="You double clicked me"
+        }
+
+        var onMouseMove = function(){
+            secondButton.textContent = "NOT button"
+        }
+
+        clickerButton.addEventListener("click", onButtonClick)
+        clickerButton.addEventListener("dblclick", onDbClick)
+        secondButton.addEventListener("mouseover", onMouseMove)
+
+    </script>
+</body>
+</html>
