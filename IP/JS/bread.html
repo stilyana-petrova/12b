@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Using the event properties</title>
+</head>
+<style>
+    .bread{
+        background: black;
+        width: 5px;
+        height: 5px;
+        position: absolute;
+        border-radius: 5px;
+        top: 80px;
+        left: 15px;
+    }
+</style>
+<body>
+
+    <img src="http://www.kasandbox.org/programming-images/creatures/Winston.png" id="face"   >
+    <div id="message"></div>
+    
+    <script>
+
+        var face=document.getElementById("face");
+
+        var onMouseMove=function(e){
+            // document.getElementById("message").textContent +="moove ";
+            var bread=document.createElement("div");
+            bread.className="bread";
+            document.body.appendChild(bread);
+            bread.style.top=e.clientY + "px";
+            bread.style.left=e.clientX + "px";
+        };
+        face.addEventListener("mousemove", onMouseMove);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>rocessing forms with events</title>
+</head>
+<body>
+    <div>
+        <label>What's your name?
+        <input id="name" type="text">
+        </label>
+        <br>
+        <label>What language do you speak?
+        <select id="lang">
+            <option value="en">English</option>
+            <option value="es">Spanish</option>
+            <option value="plt">Pig-latin</option>
+        </select>
+        </label>
+        <br>
+        <button id="button" type="button">Greet me, please!</button>
+        <div id="message"></div>
+    </div>
+    <script>
+        var button=document.getElementById("button")
+
+        var onButtonClick = function(){
+            var name = document.getElementById("name").value
+            var lang = document.getElementById("lang").value
+            if(lang === "es")
+            {
+                greeting ="hola " + name
+            }
+            else if(lang === "plt")
+            {
+                greeting = "ello-hay " +name
+            }
+            else{
+                greeting = "hi " +name
+            }
+            
+            document.getElementById("message").textContent += greeting
+        }
+        button.addEventListener("click", onButtonClick)
+    </script>
+</body>
+</html>

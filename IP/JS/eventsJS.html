@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <a href="https://www.kasandbox.org/programming-sounds/rpg/giant-no.mp3" id="ohnoes">What does this say</a>
+    
+    <script>
+        var ohnoesEl = document.getElementById("ohnoes")
+
+        var ohNoesClick = function(){
+            var audio = document.createElement("audio")
+            audio.src="https://www.kasandbox.org/programming-sounds/rpg/giant-no.mp3"
+            audio.autoplay="true"
+            document.body.appendChild(audio)
+        }
+        ohnoesEl.addEventListener("click", ohNoesClick)
+    </script>
+
+</body>
+</html>
