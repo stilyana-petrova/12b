@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Shopping List</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+		<div class="header">
+			<h1>Shopping List for my Birthday</h1>
+		</div>
+
+		<div class="list">
+			<div class="list--header">
+				<input id="userinput" type="text" placeholder="...">
+				<button id="enter">Enter</button>
+			</div>
+			<ul id="item--List">
+        <li><span>Birthday cake</span>
+         
+        </li>
+        
+				<li><span>Balloons</span>
+         
+        </li>
+        
+       
+				<li><span>Candles</span>
+         
+        </li>
+			</ul>
+		
+		
+<script >
+
+	var btn=document.getElementById("enter")
+    var listUL = document.getElementById('item--List');
+
+
+	var onButtonClick= function(){
+		var text=document.getElementById("userinput")
+		var ell=document.createElement("li")
+		ell.textContent=text.value
+		listUL.appendChild(ell)
+		
+    
+	};
+	btn.addEventListener("click", onButtonClick);
+
+
+</script>
+</body>
+</html>

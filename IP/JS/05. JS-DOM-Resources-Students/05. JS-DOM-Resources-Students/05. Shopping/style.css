@@ -1,0 +1,119 @@
+
+
+html, body {
+  margin: auto 0;
+  font-size: 18px;
+  font-family: 'BioRhyme', serif;
+}
+
+body {
+   
+  background: rgba(178, 242, 170, 0.8);
+
+background-size: cover;
+display: grid;
+justify-items: center;
+}
+
+/* .container {
+  background: rgba(218, 216, 216, 0.8);
+  border-radius: 50px;
+  width: 60vw;
+  display: grid;
+  justify-items: center;
+  grid-gap: 1rem;
+  padding: 1rem;
+  margin: 2rem 0;
+ 
+} */
+
+.header {
+  display: inline-flex;
+}
+
+h1 {
+  padding: 0 1.5rem;
+  font-family: 'Monoton', cursive;
+  letter-spacing: 3px;
+  font-weight: 300;
+  font-size: 2.8em;
+}
+
+#first {
+  display: flex;
+  align-self: baseline;
+}
+
+.list {
+  background: rgba(238, 51, 51, 0.8);
+  border-radius: 20px 100px;
+  padding: 2rem;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+}
+
+.list--header {
+  align-self: center;
+  padding-top: 1rem;
+}
+
+#userinput, #enter {
+  padding: .5rem;
+  font-size: .8em;
+  border-radius: 5%;
+}
+
+#enter {
+  background-color: #ea6f12;
+  color: rgba(244, 244, 244, 0.9);
+  border: #ea6f12;
+  cursor: pointer;
+  margin-top: .5rem;
+}
+
+#enter:link,
+#enter:visited {
+  background-color: #88817c;
+  color: rgba(244, 244, 244, 0.9);
+  border: #88817c;
+}
+
+#enter:hover,
+#enter:active {
+  background-color:#88817c;
+  color: #f4f4f4;
+  border: #88817c;
+}
+
+ul {
+  text-align: right;
+  list-style-type: none;
+}
+
+li {
+  padding-top: .5rem;
+  cursor: pointer;
+}
+
+button {
+  margin-left: 1rem;
+  margin-bottom: .5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: .5rem .3rem;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+
+.done {
+  text-decoration: line-through;
+}
+
+.footer {
+  font-size: .7em;
+  letter-spacing: 1px;
+}
