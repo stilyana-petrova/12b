@@ -1,0 +1,151 @@
+body{
+    background-image: url("bgrn.jpg");
+}
+nav{
+    background-color: #b08968;
+    text-align: center;
+    padding: 1px 1px 5px 4px;
+    margin: 15px;
+    width: 91%;
+    float: right;
+}
+.navbar{
+    display: flex;
+}
+li{
+    display: inline-block;
+    padding: 8px;
+}
+a:link{
+    color: #250902;
+}
+a:visited{
+    color: black;
+}
+a:hover{
+    color: #f2cc8f;
+}
+img{
+    height: 80px;
+    margin: 10px;
+}
+h1{
+    text-align: left;   
+    color: #310e05;
+    font-size: 48px; 
+    font-family: 'Signika', sans-serif; 
+    padding-bottom: 10px;
+    padding-left: 15px;
+}
+#info{
+    padding-left: 15px;
+    padding-right: 15px;
+    font-family: 'Inder', sans-serif; 
+    line-height: 28px; 
+    margin-bottom: 15px; 
+    color: #f2cc8f;
+}
+.box{
+    display:inline-block;
+    width: 23%;
+    text-align: center;
+    padding: 20px;
+    margin: 13px;
+    height: 350px;
+    background-color: #b08968;
+    
+}
+h3{
+    color: #310e05;
+    font-family: 'Signika', sans-serif; 
+}
+
+main{
+    margin: 15px;
+}
+
+.section{
+    display:inline-block;
+    width: 20%;
+    background-color: #b08968;
+    height: 250px;
+    text-align: center;
+    margin: 10px;
+    padding: 5px;
+}
+
+
+.btn {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: rgb(63, 7, 7);
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px, 5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  margin: 20px;
+}
+
+.btn:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
+}
+
+#text{
+    width: 90%;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 10px;
+    
+}
+
+@media (min-width: 800px) {
+  .btn {
+    padding: 0.25em 0.75em;
+  }
+  .section{
+    height: auto;
+    display:inline-table;
+  }
+  #text{
+      height: 20px;
+  }
+  .box{
+      display: inline-table;
+  }
+  
+}
+@media (max-width: 800px) {
+    .section{
+        height: auto;
+        display: block;
+        width: 88%;
+    }
+    #text{
+        height: 200px;
+    }
+    .box{
+        height: auto;
+        display: block;
+        width: 80%;
+    }
+    #photo1{
+        width: auto;
+    }
+    .navbar{
+        display: flex;
+        width: auto;
+    }
+    
+}
+.align{
+    text-align: center;
+}

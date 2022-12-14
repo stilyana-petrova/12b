@@ -20,6 +20,15 @@
             <li><a href="contacts.html">Контакти</a></li>
         </ul>
     </nav>
+
+    <div id="slideshow">
+       
+        <img src="guitars.jpg" alt="guitar" />
+        <img src="piano2.jpg" alt="piano2" />
+        <img src="bgrn.jpg" alt="BG" />
+        
+    </div>
+
     <main>
         <section >
             <div class="row">
@@ -49,6 +58,32 @@
     <footer>
 
     </footer>
+
+<script>
+var slideShow=function(container){
+    this.images=[]
+    this.curImage=0;
+    for(i=0;i<container.childElementCount;i++){
+        this.images.push(container.children[i])
+        this.images[i].style.display="none"
+    }
+
+    var nextSlide=function(){
+        for (var i=0; i<this.images.length;i++){
+            this.images[i].style.display="none"
+        }
+        this.images[this.curImage].style.display="block"
+        this.curImage++
+        if (this.curImage >= this.images.length){
+            this.curImage=0
+        }
+        window.setTimeout(nextSlide.bind(this), 2000)
+    }
+    nextSlide.call(this)
+}
+slideShow(document.getElementById("slideshow"))
+
+</script>
 
 </body>
 </html>
