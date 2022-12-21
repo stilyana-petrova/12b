@@ -8,7 +8,7 @@ nav{
     margin: 15px;
     width: 91%;
     float: right;
-    font-size: 25px;
+    font-size: 20px;
 }
 .navbar{
     display: flex;
@@ -36,7 +36,7 @@ h1{
     font-size: 48px; 
     font-family: 'Signika', sans-serif; 
     padding-bottom: 10px;
-    padding-left: 15px;
+    padding-left: 0px;
 }
 #info{
     padding-left: 15px;
@@ -52,7 +52,7 @@ h1{
     text-align: center;
     padding: 20px;
     margin: 13px;
-    height: 350px;
+    height: 300px;
     background-color: #b08968;
     
 }
@@ -72,7 +72,7 @@ main{
     height: 250px;
     text-align: center;
     margin: 10px;
-    padding: 5px;
+    padding: 10px;
 }
 
 
@@ -107,21 +107,31 @@ main{
     padding: 10px;
     
 }
+p{
+    text-align: justify;
+}
 
 @media (min-width: 800px) {
-  .btn {
-    padding: 0.25em 0.75em;
-  }
-  .section{
-    height: 300px;
-    display:inline-table;
-  }
-  #text{
+    .btn {
+        padding: 0.25em 0.75em;
+    }
+    .section{
+        height: 200;
+        display:inline-table;
+    }
+    #text{
       height: 20px;
-  }
-  .box{
+    }
+    .box{
       display: inline-table;
-  }
+    }
+    
+    .section, .box{
+        align-items: center;
+    }
+    p{
+      padding-top: 10px;
+    }
   
 }
 @media (max-width: 800px) {
@@ -136,8 +146,8 @@ main{
     .box{
         height: auto;
         display: block;
-        width: 88%;
-        padding: 3px;
+        width: 83.5%;
+
     }
     #photo1{
         width: auto;
@@ -146,7 +156,6 @@ main{
         display: flex;
         width: auto;
     }
-    
 }
 .align{
     text-align: center;
