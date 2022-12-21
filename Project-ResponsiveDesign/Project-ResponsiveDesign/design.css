@@ -4,10 +4,11 @@ body{
 nav{
     background-color: #b08968;
     text-align: center;
-    padding: 1px 1px 5px 4px;
+  
     margin: 15px;
     width: 91%;
     float: right;
+    font-size: 25px;
 }
 .navbar{
     display: flex;
@@ -112,7 +113,7 @@ main{
     padding: 0.25em 0.75em;
   }
   .section{
-    height: auto;
+    height: 300px;
     display:inline-table;
   }
   #text{
@@ -135,7 +136,8 @@ main{
     .box{
         height: auto;
         display: block;
-        width: 80%;
+        width: 88%;
+        padding: 3px;
     }
     #photo1{
         width: auto;
