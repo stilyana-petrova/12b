@@ -4,8 +4,38 @@
 
 <div class="text-center">
     <h1 class="display-4">Artsy</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
-<div>
-    <img src="https://cdn.shopify.com/s/files/1/0070/7032/files/selling-handmade-goods.png?format=jpg&quality=90&v=1528140509"  class="img-fluid rounded mx-auto d-block"/>
+<br />
+<div id="slideshow">
+    <img src="https://images.pexels.com/photos/2072165/pexels-photo-2072165.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="img-fluid rounded mx-auto d-block" />
+    <img src="https://images.pexels.com/photos/793521/pexels-photo-793521.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="img-fluid rounded mx-auto d-block" />
+    <img src="https://images.pexels.com/photos/1108532/pexels-photo-1108532.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="img-fluid rounded mx-auto d-block" />
 </div>
+
+
+@section scripts{ 
+<script type="text/javascript">
+    var slideShow = function (container) {
+        this.images = []
+        this.curImage = 0;
+        for (i = 0; i < container.childElementCount; i++) {
+            this.images.push(container.children[i])
+            this.images[i].style.display = "none"
+        }
+
+        var nextSlide = function () {
+            for (var i = 0; i < this.images.length; i++) {
+                this.images[i].style.display = "none"
+            }
+            this.images[this.curImage].style.display = "block"
+            this.curImage++
+            if (this.curImage >= this.images.length) {
+                this.curImage = 0
+            }
+            window.setTimeout(nextSlide.bind(this), 3000)
+        }
+        nextSlide.call(this)
+    }
+    slideShow(document.getElementById("slideshow"))
+</script>
+}
