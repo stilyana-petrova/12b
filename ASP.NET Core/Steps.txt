@@ -1,0 +1,5 @@
+Задължителни стъпки
+
+appsettings.json
+StartUp.cs - нещата за паролата
+Data -> ApplicationDbContext.cs

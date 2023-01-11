@@ -27,6 +27,6 @@ namespace HotelWebApp.Entities
         public DateTime ReservationDate { get; set; }
         [Required]
 
-        public int NightNumber { get; set; }
+        public int Nights { get; set; }
     }
 }
