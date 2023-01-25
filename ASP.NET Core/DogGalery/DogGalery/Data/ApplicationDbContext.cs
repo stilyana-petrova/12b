@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Text;
+using DogGalery.Models;
 
 namespace DogGalery.Data
 {
@@ -15,5 +16,8 @@ namespace DogGalery.Data
             this.Database.EnsureCreated();
         }
         public DbSet<Dog> Dogs { get; set; }
+        public DbSet<DogGalery.Models.DogEditViewModel> DogEditViewModel { get; set; }
+        public DbSet<DogGalery.Models.DogDeleteViewModel> DogDeleteViewModel { get; set; }
+        public DbSet<DogGalery.Models.DogDetailsViewModel> DogDetailsViewModel { get; set; }
     }
 }

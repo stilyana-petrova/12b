@@ -47,6 +47,11 @@
                     <img src="@Html.DisplayFor(modelItem => item. Picture)" alt="Image" width="100" />
                     @*@Html.DisplayFor(modelItem => item. Picture)*@
                 </td>
+                <td>
+                    <a asp-action="Edit" asp-controller="Dogs" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-controller="Dogs" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-controller="Dogs" asp-route-id="@item.Id">Delete</a>
+                </td>
             </tr>
          }
     <tbody>
