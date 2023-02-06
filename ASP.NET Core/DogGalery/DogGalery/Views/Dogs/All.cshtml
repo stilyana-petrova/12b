@@ -10,6 +10,28 @@
     <a asp-action="Create">Create new Dog</a>
 </p>
 
+
+<form asp-controller="Dogs" asp-action="All" method="get">
+
+    <p>
+        Breed: <input type="text" name="SearchStringBreed" />
+        Name: <input type="text" name="SearchStringName"/>
+        <input type="submit" value="Filter"/>
+   
+    </p>
+
+</form>
+
+<form asp-controller="Dogs" asp-action="Sort" method="get">
+
+    <p>
+      
+        <input type="submit" value="Sort" />
+    </p>
+
+</form>
+
+
 <table class="table">
     <thead>
         <tr>

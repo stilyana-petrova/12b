@@ -50,7 +50,7 @@ namespace DogGalery.Controllers
             return this.View();
         }
 
-        public IActionResult All()
+        public IActionResult All(string searchStringBreed, string searchStringName)
         {
             List<DogAllViewModel> dogs = context.Dogs.Select(dogFromDb => new DogAllViewModel
             {
@@ -60,6 +60,24 @@ namespace DogGalery.Controllers
                 Breed=dogFromDb.Breed,
                 Picture=dogFromDb.Picture
             }).ToList();
+
+            if (!String.IsNullOrEmpty(searchStringBreed)&& !String.IsNullOrEmpty(searchStringName))
+            {
+                dogs = dogs.Where(d => d.Breed.ToLower() == searchStringBreed.ToLower() && d.Name.ToLower() == searchStringName.ToLower()).ToList();
+            }
+
+            else if (!String.IsNullOrEmpty(searchStringBreed))
+            {
+                dogs = dogs.Where(d => d.Breed.ToLower() == searchStringBreed.ToLower()).ToList();
+            }
+
+            else if (!String.IsNullOrEmpty(searchStringName))
+            {
+                dogs = dogs.Where(d => d.Name.ToLower() == searchStringName.ToLower()).ToList();
+            }
+
+           
+
             return View(dogs);
         }
 
@@ -157,6 +175,21 @@ namespace DogGalery.Controllers
                 Picture = item.Picture
             };
             return View(dog);
+        }
+
+
+        public IActionResult Sort()
+        {
+            List<DogAllViewModel> dogs = context.Dogs.Select(dogFromDb => new DogAllViewModel
+            {
+                Id = dogFromDb.Id,
+                Name = dogFromDb.Name,
+                Age = dogFromDb.Age,
+                Breed = dogFromDb.Breed,
+                Picture = dogFromDb.Picture
+            }).OrderBy(x=>x.Name).ToList();
+
+            return View(dogs);
         }
     }
 }
