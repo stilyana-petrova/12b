@@ -1,4 +1,6 @@
+using DogGalery.Abstractions;
 using DogGalery.Data;
+using DogGalery.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,6 +37,7 @@ namespace DogGalery
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
+            services.AddTransient<IDogService, DogServices>();
 
             services.Configure<IdentityOptions>(options =>
             {

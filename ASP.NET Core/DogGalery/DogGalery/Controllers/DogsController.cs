@@ -1,6 +1,8 @@
-﻿using DogGalery.Data;
+﻿using DogGalery.Abstractions;
+using DogGalery.Data;
 using DogGalery.Entities;
 using DogGalery.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,10 +13,10 @@ namespace DogGalery.Controllers
 {
     public class DogsController : Controller
     {
-        private readonly ApplicationDbContext context;
-        public DogsController(ApplicationDbContext context)
+        private readonly IDogService _dogService;
+        public DogsController(IDogService dogService)
         {
-            this.context = context;
+            this._dogService = dogService;
         }
         public IActionResult Index()
         {
@@ -30,17 +32,11 @@ namespace DogGalery.Controllers
         {
             if (ModelState.IsValid)
             {
-                Dog dogFromDb = new Dog
+                var created = _dogService.Create(bindingModel.Name, bindingModel.Age, bindingModel.Breed, bindingModel.Picture);
+                if (created)
                 {
-                    Name = bindingModel.Name,
-                    Age = bindingModel.Age,
-                    Breed = bindingModel.Breed,
-                    Picture = bindingModel.Picture,
-                };
-                context.Dogs.Add(dogFromDb);
-                context.SaveChanges();
-
-                return this.RedirectToAction("Success");
+                    return this.RedirectToAction("Success");
+                }
             }
             return this.View();
         }
@@ -52,7 +48,7 @@ namespace DogGalery.Controllers
 
         public IActionResult All(string searchStringBreed, string searchStringName)
         {
-            List<DogAllViewModel> dogs = context.Dogs.Select(dogFromDb => new DogAllViewModel
+            List<DogAllViewModel> dogs = _dogService.GetDogs(searchStringBreed, searchStringName).Select(dogFromDb => new DogAllViewModel
             {
                 Id=dogFromDb.Id,
                 Name=dogFromDb.Name,
@@ -61,37 +57,17 @@ namespace DogGalery.Controllers
                 Picture=dogFromDb.Picture
             }).ToList();
 
-            if (!String.IsNullOrEmpty(searchStringBreed)&& !String.IsNullOrEmpty(searchStringName))
-            {
-                dogs = dogs.Where(d => d.Breed.ToLower() == searchStringBreed.ToLower() && d.Name.ToLower() == searchStringName.ToLower()).ToList();
-            }
-
-            else if (!String.IsNullOrEmpty(searchStringBreed))
-            {
-                dogs = dogs.Where(d => d.Breed.ToLower() == searchStringBreed.ToLower()).ToList();
-            }
-
-            else if (!String.IsNullOrEmpty(searchStringName))
-            {
-                dogs = dogs.Where(d => d.Name.ToLower() == searchStringName.ToLower()).ToList();
-            }
-
-           
-
             return View(dogs);
         }
 
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int id)
         {
-            if (id==null)
-            {
-                return NotFound();
-            }
-            Dog item = context.Dogs.Find(id);
+            Dog item = _dogService.GetDogById(id);
             if (item==null)
             {
                 return NotFound();
             }
+            
             DogEditViewModel dog = new DogEditViewModel()
             {
                 Id = item.Id,
@@ -103,31 +79,22 @@ namespace DogGalery.Controllers
             return View(dog);
         }
         [HttpPost]
-        public IActionResult Edit(DogEditViewModel bindingModel)
+        public IActionResult Edit(int id, DogEditViewModel bindingModel)
         {
             if (ModelState.IsValid)
             {
-                Dog dog = new Dog()
+                var updated = _dogService.UpdateDog(id, bindingModel.Name, bindingModel.Age, bindingModel.Breed, bindingModel.Picture);
+                if (updated)
                 {
-                    Id = bindingModel.Id,
-                    Name = bindingModel.Name,
-                    Age = bindingModel.Age,
-                    Breed = bindingModel.Breed,
-                    Picture = bindingModel.Picture
-                };
-                context.Dogs.Update(dog);
-                context.SaveChanges();
-                return this.RedirectToAction("All");
+                    return this.RedirectToAction("All");
+                }
             }
             return View(bindingModel);
         }
-        public IActionResult Delete(int? id)
+        public IActionResult Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            Dog item = context.Dogs.Find(id);
+            Dog item = _dogService.GetDogById(id);
+          
             if (item == null)
             {
                 return NotFound();
@@ -143,25 +110,23 @@ namespace DogGalery.Controllers
             return View(dog);
         }
         [HttpPost]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(int id, IFormCollection collection)
         {
-            Dog item = context.Dogs.Find(id); 
-            if (item == null)
+            var deleted = _dogService.RemoveById(id);
+            if (deleted)
             {
-                return NotFound();
+                return this.RedirectToAction("All", "Dogs");
             }
-            context.Dogs.Remove(item);
-            context.SaveChanges();
-            return this.RedirectToAction("All", "Dogs");
+            else
+            {
+                return View();
+            }
         }
 
-        public IActionResult Details(int? id)
+        public IActionResult Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-            Dog item = context.Dogs.Find(id);
+            Dog item = _dogService.GetDogById(id);
+
             if (item == null)
             {
                 return NotFound();
@@ -180,7 +145,7 @@ namespace DogGalery.Controllers
 
         public IActionResult Sort()
         {
-            List<DogAllViewModel> dogs = context.Dogs.Select(dogFromDb => new DogAllViewModel
+            List<DogAllViewModel> dogs = _dogService.GetDogs().Select(dogFromDb => new DogAllViewModel
             {
                 Id = dogFromDb.Id,
                 Name = dogFromDb.Name,
